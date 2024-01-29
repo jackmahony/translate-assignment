@@ -15,25 +15,31 @@
     <!-- component -->
     <header class="header flex items-center justify-between px-8 py-2 border-b mb-4">
       <!-- logo -->
-      <h1 class="w-3/12">
+      <h1 class="flex">
         <%= link_to root_path do %>
           <%= image_tag "logo.png", size: "48x48" %>
         <% end %>
       </h1>
 
+      <%# set locales %>
+      <div class= ""> 
+          <%= link_to "English", locale_link(:en), class: "active" %> 
+          <%= link_to "French", locale_link(:fr) %>
+      </div>
+
       <!-- navigation -->
-      <nav class="nav">
+      <nav class="nav flex">
         <ul class="flex items-center">
           <% if signed_in? %>
             <li class="p-4 text-slate-300">
               <%= current_user.email %>
             </li>
             <li class="p-4 cursor-pointer">
-              <%= button_to "Log out", destroy_user_session_path, class: "button", method: :delete %>
+              <%= button_to I18n.t('.logout'), destroy_user_session_path, class: "button", method: :delete %>
             </li>
           <% else %>
             <li class="p-4 cursor-pointer">
-              <%= link_to "Log in", new_user_session_path, class: "button" %>
+              <%= link_to I18n.t('.login'), new_user_session_path, class: "button" %>
             </li>
           <% end %>
         </ul>

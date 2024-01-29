@@ -226,6 +226,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  arm64-darwin-23
 
 DEPENDENCIES
   bootsnap
@@ -233,6 +234,7 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   devise-tailwindcssed (~> 0.1.5)
+  i18n
   importmap-rails
   jbuilder
   puma (~> 5.0)
